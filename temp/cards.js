@@ -2,6 +2,8 @@ const Manager = require("../lib/Manager");
 
 function generateManager(Manager) {
   return `
+
+
   <div class="card" style="width: 18rem;">
       <div class="card-header">
         ${Manager.name}

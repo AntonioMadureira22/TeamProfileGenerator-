@@ -1,7 +1,4 @@
-const card = require("./cards")
 
-const pageTemplate = function (employeeCards) {
-    return `
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -23,12 +20,38 @@ const pageTemplate = function (employeeCards) {
   <main>
       <div class="container">
           <div class="row justify-content-center" id="cards">
-              ${employeeCards}
+              
+
+
+  <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        
+        <br>
+        <i class="fas fa-chalkboard-teacher"></i>Manager
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Employee Id: </li>
+        <li class="list-group-item">Office Number: </li>
+        <a href="mailto:" class="card-link"></a>
+      </ul>
+  </div>    
+,
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        
+        <br>
+        <i class="fas fa-laptop-code"></i>Engineer
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Employee Id: NaN</li>
+        <li class="list-group-item">Github Account:<a href="https://github.com/undefined">undefined</a></li>
+        <a href="mailto:" class="card-link"></a>
+      </ul>
+  </div>
+      
           </div>
       </div>
   </main>
   </body>
   </html>
-  `;
-  };
-  module.exports = pageTemplate;
+  

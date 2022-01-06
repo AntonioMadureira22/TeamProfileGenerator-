@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
 
-const pageTemplate = require("");
+const pageTemplate = require("./temp/template");
 const {
   generateManager,
   generateEngineer,
   generateIntern,
-} = require("./src/card.js");
+} = require("./temp/cards");
 
 const fs = require("fs");
 const Manager = require("./lib/Manager")
@@ -14,7 +14,7 @@ const Intern = require("./lib/intern");
 
 
 const employeeCards = [];
-
+//manager prompts
 const manager = () => {
   return inquirer
     .prompt([
@@ -22,7 +22,7 @@ const manager = () => {
         type: "input",
         name: "name",
         message: "Who is the manager?",
-        //manager.name input to cards
+        
       },
       {
         type: "input",
@@ -43,10 +43,10 @@ const manager = () => {
     .then((managerData) => {
       const managerCard = generateManager(managerData);
       employeeCards.push(managerCard);
-      // console.log(employeeCards);
+
     });
 };
-
+//employee prmopt set up
 const promptEmployee = () => {
   console.log(`
         ===============
@@ -103,12 +103,12 @@ const promptEmployee = () => {
         engineerData = new Engineer(name, id, email, github);
         engineerCard = generateEngineer(engineerData);
         employeeCards.push(engineerCard);
-        // console.log(engineerCard);
+        
       } else if (role === "Intern") {
         internData = new Intern(name, id, email, school);
         internCard = generateIntern(internData);
         employeeCards.push(internCard);
-        // console.log(internCard);
+        
       }
 
       if (confirmAddEmployee) {
@@ -119,13 +119,14 @@ const promptEmployee = () => {
     });
 };
 
+//to print the cards for team
 const writeFile = (data) => {
-  fs.writeFile("./dist/index.html", data, (err) => {
+  fs.writeFile("./temp/index.html", data, (err) => {
     if (err) {
       console.log(err);
       return;
     } else {
-      console.log("Your team page has been created!");
+      console.log("Page has been Created, view your team now!");
     }
   });
 };
